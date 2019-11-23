@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">finalyear</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Masum Al Reza</string>
+    <string name="nav_header_subtitle">Masum Al Reza</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Smart health Consult</string>
+    <string name="doctor_list">Doctors gallery</string>
+    <string name="Medicine_list">Medicine gallery</string>
+    <string name="Log_in">Login</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="doctors_gallery">Doctors gallery</string>
+    <string name="enter_email">enter email</string>
+    <string name="enter_password">enter password</string>
+    <string name="register">register</string>
+    <string name="login">login</string>
+    <string name="status">status</string>
+    <string name="home">home</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

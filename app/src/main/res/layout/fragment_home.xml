@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:text="welcome to admin"
+        android:textSize="40dp"
+        android:textStyle="bold|italic" />
+
+
+
+    <LinearLayout
+        android:layout_marginTop="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Add_movies_card"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:elevation="6dp"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="78dp"
+                    android:layout_height="88dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:text="Profile"
+
+                    android:textColorHighlight="@color/cardview_light_background"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic" />
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:elevation="6dp"
+            android:id="@+id/View_all_moviescard"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:id="@+id/View_movies_card"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="78dp"
+                    android:layout_height="88dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:text="Diet Panel"
+
+                    android:textColorHighlight="@color/cardview_light_background"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic" />
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:id="@+id/Add_catagories_card"
+            android:elevation="6dp"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="102dp"
+                    android:layout_height="108dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:text="Doctors Arena"
+
+                    android:textColorHighlight="@color/cardview_light_background"
+                    android:textSize="21sp"
+                    android:textStyle="bold|italic" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:id="@+id/view_all_catagoriescard"
+            android:elevation="6dp"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="102dp"
+                    android:layout_height="108dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:text="Medicine"
+
+                    android:textColorHighlight="@color/cardview_light_background"
+                    android:textSize="21sp"
+                    android:textStyle="bold|italic" />
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:id="@+id/manage_users_card"
+            android:elevation="6dp"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="102dp"
+                    android:layout_height="108dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:text="Water Alarm"
+
+                    android:textColorHighlight="@color/cardview_light_background"
+                    android:textSize="21sp"
+                    android:textStyle="bold|italic" />
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:id="@+id/view_pendinf_card"
+            android:elevation="6dp"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="102dp"
+                    android:layout_height="108dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:text="Nearby Hospital"
+
+                    android:textColorHighlight="@color/cardview_light_background"
+                    android:textSize="21sp"
+                    android:textStyle="bold|italic" />
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+</LinearLayout>
