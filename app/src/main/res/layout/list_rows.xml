@@ -20,9 +20,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/row_callorytype"
+            android:textSize="16sp"
+            android:layout_below="@id/row_eventName"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/row_callory_budget"
+            android:textSize="16sp"
+            android:layout_below="@id/row_callorytype"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/row_departureDate"
             android:textSize="12sp"
-            android:layout_below="@id/row_eventName"
+            android:layout_below="@id/row_callory_budget"
             android:textStyle="italic"/>
         <TextView
             android:id="@+id/row_menu"

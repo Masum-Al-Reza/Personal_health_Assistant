@@ -2,37 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Diet_Plan">
+    android:layout_height="match_parent"
+    tools:context=".Diet_details">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/details_calloryTV"
 
-    <EditText
+        android:gravity="center"/>
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/inputeventname"
-        android:hint="Enter a plan name"/>
+        android:id="@+id/total_calloriesTV"
+android:text="ball"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/initial_calloriesTV"
 
-    <EditText
+android:text="call"
+        android:gravity="center"/>
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/inputdestination"
-        android:hint="Enter a type of diet plan"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/inputbudget"
-        android:inputType="number"
-        android:hint="target consume callories"/>
+        android:id="@+id/remaining_calloriesTV"
+          android:text="this"
+        android:gravity="center"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/add_dateBTN"
-        android:text="depurture date"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/eventaddBTn"
-        android:text="Add event"/>
+        android:id="@+id/addcalloryBTN"
+        android:text="add callory"/>
+
 
 
 </LinearLayout>

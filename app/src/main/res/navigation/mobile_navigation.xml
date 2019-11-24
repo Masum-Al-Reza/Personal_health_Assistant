@@ -71,8 +71,8 @@
             android:id="@+id/action_diet_panel_to_diet_Plan"
             app:destination="@id/diet_Plan" />
         <action
-            android:id="@+id/action_diet_panel_to_diet_Suggesiton"
-            app:destination="@id/diet_Suggesiton" />
+            android:id="@+id/action_diet_panel_to_diet_details2"
+            app:destination="@id/diet_details" />
     </fragment>
     <fragment
         android:id="@+id/diet_Suggesiton"
@@ -83,5 +83,14 @@
         android:id="@+id/diet_Plan"
         android:name="com.example.finalyear.Diet_Plan"
         android:label="fragment_diet__plan"
-        tools:layout="@layout/fragment_diet__plan" />
+        tools:layout="@layout/fragment_diet__plan" >
+        <action
+            android:id="@+id/action_diet_Plan_to_diet_panel"
+            app:destination="@id/diet_panel" />
+    </fragment>
+    <fragment
+        android:id="@+id/diet_details"
+        android:name="com.example.finalyear.Diet_details"
+        android:label="fragment_diet_details"
+        tools:layout="@layout/fragment_diet_details" />
 </navigation>

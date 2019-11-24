@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.finalyear.firebase_repository.Eventviewmodel;
-import com.example.finalyear.pojos.TourmateEvent;
+import com.example.finalyear.pojos.Callories_pojos;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -28,10 +29,10 @@ import java.util.Calendar;
  * A simple {@link Fragment} subclass.
  */
 public class Diet_Plan extends Fragment {
-    private EditText EventnameEt,destinationET,depurtureET,budgetET;
+    private EditText EventnameEt,destinationET,budgetET;
     private Button addeventBTn,DateBTn;
     private Eventviewmodel eventviewmodel;
-    private String departureDate;
+    private String Callorydate;
 
     public Diet_Plan() {
         // Required empty public constructor
@@ -51,23 +52,24 @@ public class Diet_Plan extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         EventnameEt=view.findViewById(R.id.inputeventname);
         destinationET=view.findViewById(R.id.inputdestination);
-        depurtureET=view.findViewById(R.id.departureinput);
+
         budgetET=view.findViewById(R.id.inputbudget);
         addeventBTn=view.findViewById(R.id.eventaddBTn);
         DateBTn=view.findViewById(R.id.add_dateBTN);
         addeventBTn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String eventname= EventnameEt.getText().toString();
-                String destination=destinationET.getText().toString();
-                String depurture=depurtureET.getText().toString();
-                String budget=budgetET.getText().toString();
-                if (eventname.isEmpty() && destination.isEmpty() &&depurture.isEmpty() && budget.isEmpty()){
+                String Diet_name= EventnameEt.getText().toString();
+                String Diet_type=destinationET.getText().toString();
+                String Target_callory=budgetET.getText().toString();
+                if (Diet_name.isEmpty() && Diet_type.isEmpty()  && Target_callory.isEmpty()){
                     Toast.makeText(getActivity(), "provide all info", Toast.LENGTH_SHORT).show();
 
                 }else {
-                   TourmateEvent event=new TourmateEvent(null,eventname,depurture,destination,Integer.parseInt(budget),departureDate);
+                   Callories_pojos event=new Callories_pojos(null,Diet_name,Diet_type,Integer.parseInt(Target_callory), Callorydate);
                    eventviewmodel.save(event);
+                    Navigation.findNavController(view)
+                            .navigate(R.id.action_diet_Plan_to_diet_panel);
 
 
                 }
@@ -96,8 +98,8 @@ public class Diet_Plan extends Fragment {
         public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
             Calendar calendar=Calendar.getInstance();
             calendar.set(i,i1,i2);
-            departureDate=new SimpleDateFormat("dd/mm/yyyy").format(calendar.getTime());
-            DateBTn.setText(departureDate);
+            Callorydate =new SimpleDateFormat("dd/mm/yyyy").format(calendar.getTime());
+            DateBTn.setText(Callorydate);
         }
     };
 

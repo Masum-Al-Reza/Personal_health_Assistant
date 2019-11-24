@@ -1,11 +1,9 @@
 package com.example.finalyear.firebase_repository;
 
-import android.app.Activity;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.finalyear.pojos.TourmateEvent;
+import com.example.finalyear.pojos.Callories_pojos;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,7 +21,8 @@ public class Eventrepostitory {
     private DatabaseReference userref;
     private  DatabaseReference eventref;
     private FirebaseUser firebaseUser;
-    public MutableLiveData<List<TourmateEvent>> eventlistDB=new MutableLiveData<>();
+    public MutableLiveData<List<Callories_pojos>> eventlistDB=new MutableLiveData<>();
+    public MutableLiveData<Callories_pojos>eventdetailsLD=new MutableLiveData<>();
     public   Eventrepostitory(){
         firebaseUser=FirebaseAuth.getInstance().getCurrentUser();
         rootref= FirebaseDatabase.getInstance().getReference();
@@ -32,9 +31,9 @@ public class Eventrepostitory {
         eventref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<TourmateEvent> events=new ArrayList<>();
+                List<Callories_pojos> events=new ArrayList<>();
                 for (DataSnapshot d: dataSnapshot.getChildren()){
-                    events.add(d.getValue(TourmateEvent.class));
+                    events.add(d.getValue(Callories_pojos.class));
                     eventlistDB.postValue(events);
                 }
             }
@@ -47,9 +46,27 @@ public class Eventrepostitory {
 
 
     }
-public  void  addevent_to_db(TourmateEvent event ){
+public  void  addevent_to_db(Callories_pojos event ){
         String EventID=eventref.push().getKey();
         event.setEventID(EventID);
         eventref.child(EventID).setValue(event);
+}
+public  MutableLiveData<Callories_pojos> getevetdetailsByEventid(String eventid){
+
+
+        eventref.child(eventid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Callories_pojos callories_pojos=dataSnapshot.getValue(Callories_pojos.class);
+                eventdetailsLD.postValue(callories_pojos);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        return  eventdetailsLD;
 }
 }

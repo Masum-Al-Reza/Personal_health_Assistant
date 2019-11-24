@@ -1,27 +1,30 @@
 package com.example.finalyear.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalyear.R;
-import com.example.finalyear.pojos.TourmateEvent;
+import com.example.finalyear.pojos.Callories_pojos;
 
 
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
     private Context context;
-    private List<TourmateEvent> eventList;
+    private List<Callories_pojos> eventList;
 
 
-    public EventAdapter(Context context, List<TourmateEvent> eventList) {
+    public EventAdapter(Context context, List<Callories_pojos> eventList) {
         this.context = context;
         this.eventList = eventList;
     }
@@ -36,9 +39,40 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
-        holder.nameTV.setText(eventList.get(position).getEventName());
-        holder.destinationTV.setText(eventList.get(position).getDepartureDate());
+    public void onBindViewHolder(@NonNull final EventViewHolder holder, final int position) {
+        holder.nameTV.setText(eventList.get(position).getDietname());
+        holder.CAllory_Date.setText(eventList.get(position).getCallories_date());
+        holder.Callory_typeTV.setText(eventList.get(position).getDiet_type());
+        //holder.CalloryBudgetTV.setText(eventList.get(position).getBudget());
+        holder.rowTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(context, v);
+                popupMenu.getMenuInflater().inflate(R.menu.adddetailcalories, popupMenu.getMenu());
+                popupMenu.show();
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        String eventid=eventList.get(position).getEventID();
+                        Bundle bundle=new Bundle();
+                        bundle.putString("id",eventid);
+                        switch (item.getItemId()){
+                            case R.id.item_delete:
+                                break;
+                            case R.id.item_details:
+                               Navigation.findNavController(holder.itemView).navigate(R.id.action_diet_panel_to_diet_details2,bundle);
+                                break;
+                            case  R.id.item_edit:
+                                break;
+
+                        }
+                        return false;
+                    }
+                });
+            }
+        });
+
+
 
     }
 
@@ -48,11 +82,15 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
     }
 
     class EventViewHolder extends RecyclerView.ViewHolder {
-        public TextView nameTV,destinationTV,depurtureTV,budgetTV;
+        public TextView nameTV, CAllory_Date,Callory_typeTV,CalloryBudgetTV,rowTV;
         public EventViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTV=itemView.findViewById(R.id.row_eventName);
-            destinationTV=itemView.findViewById(R.id.row_departureDate);
+            CAllory_Date =itemView.findViewById(R.id.row_departureDate);
+            Callory_typeTV=itemView.findViewById(R.id.row_callorytype);
+            CalloryBudgetTV=itemView.findViewById(R.id.row_callory_budget);
+            rowTV=itemView.findViewById(R.id.row_menu);
+
 
 
 

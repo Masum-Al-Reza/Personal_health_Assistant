@@ -21,7 +21,7 @@ import android.view.ViewGroup;
 
 import com.example.finalyear.adapter.EventAdapter;
 import com.example.finalyear.firebase_repository.Eventviewmodel;
-import com.example.finalyear.pojos.TourmateEvent;
+import com.example.finalyear.pojos.Callories_pojos;
 
 import java.util.List;
 
@@ -73,9 +73,9 @@ public class Diet_panel extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView=view.findViewById(R.id.DietRV);
-        eventviewmodel.eventlistDB.observe(this, new Observer<List<TourmateEvent>>() {
+        eventviewmodel.eventlistDB.observe(this, new Observer<List<Callories_pojos>>() {
             @Override
-            public void onChanged(List<TourmateEvent> tourmateEvents) {
+            public void onChanged(List<Callories_pojos> tourmateEvents) {
                 eventAdapter = new EventAdapter(getActivity(), tourmateEvents);
                 LinearLayoutManager llm = new LinearLayoutManager(getActivity());
                 recyclerView.setLayoutManager(llm);
