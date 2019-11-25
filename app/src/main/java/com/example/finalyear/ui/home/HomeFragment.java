@@ -19,7 +19,8 @@ import com.example.finalyear.R;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    private CardView View_movies_cards;
+    private CardView View_movies_cards,profileCV,Doctorsgallery_cv;
+
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -35,10 +36,25 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         View_movies_cards=view.findViewById(R.id.View_all_moviescard);
+        profileCV=view.findViewById(R.id.View_all_profiles);
+        Doctorsgallery_cv=view.findViewById(R.id.view_all_doctors);
         View_movies_cards.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.action_nav_home_to_diet_panel);
+            }
+        });
+        profileCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_user_profile);
+            }
+        });
+        Doctorsgallery_cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_nav_gallery);
+
             }
         });
     }

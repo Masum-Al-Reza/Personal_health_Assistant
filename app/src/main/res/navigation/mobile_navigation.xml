@@ -16,13 +16,23 @@
         <action
             android:id="@+id/action_nav_home_to_diet_panel"
             app:destination="@id/diet_panel" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_gallery"
+            app:destination="@id/nav_gallery" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.finalyear.ui.doctors_gallery.GalleryFragment"
 
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_nav_gallery_to_doctors_User_profile"
+            app:destination="@id/doctors_User_profile" />
+        <action
+            android:id="@+id/action_nav_gallery_to_doctor_details"
+            app:destination="@id/doctor_details" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_slideshow"
@@ -64,7 +74,7 @@
         tools:layout="@layout/fragment_user_profile" />
     <fragment
         android:id="@+id/diet_panel"
-        android:name="com.example.finalyear.Diet_panel"
+        android:name="com.example.finalyear.ui.diet.Diet_panel"
         android:label="fragment_diet_panel"
         tools:layout="@layout/fragment_diet_panel" >
         <action
@@ -81,7 +91,7 @@
         tools:layout="@layout/fragment_diet__suggesiton" />
     <fragment
         android:id="@+id/diet_Plan"
-        android:name="com.example.finalyear.Diet_Plan"
+        android:name="com.example.finalyear.ui.diet.Diet_Plan"
         android:label="fragment_diet__plan"
         tools:layout="@layout/fragment_diet__plan" >
         <action
@@ -90,7 +100,16 @@
     </fragment>
     <fragment
         android:id="@+id/diet_details"
-        android:name="com.example.finalyear.Diet_details"
+        android:name="com.example.finalyear.Consume.Diet_details"
         android:label="fragment_diet_details"
         tools:layout="@layout/fragment_diet_details" />
+    <fragment
+        android:id="@+id/doctors_User_profile"
+        android:name="com.example.finalyear.ui.doctors_gallery.Doctors_User_profile"
+        android:label="Doctors_User_profile" />
+    <fragment
+        android:id="@+id/doctor_details"
+        android:name="com.example.finalyear.ui.doctors_gallery.Doctor_details"
+        android:label="fragment_doctor_details"
+        tools:layout="@layout/fragment_doctor_details" />
 </navigation>

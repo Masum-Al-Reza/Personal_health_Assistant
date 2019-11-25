@@ -1,4 +1,4 @@
-package com.example.finalyear;
+package com.example.finalyear.ui.diet;
 
 
 import android.os.Bundle;
@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.finalyear.R;
 import com.example.finalyear.adapter.EventAdapter;
 import com.example.finalyear.firebase_repository.Eventviewmodel;
 import com.example.finalyear.pojos.Callories_pojos;
@@ -62,7 +63,7 @@ public class Diet_panel extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.madditem:
+            case R.id.additem:
                 Navigation.findNavController(getActivity(),R.id.nav_host_fragment).navigate(R.id.action_diet_panel_to_diet_Plan);
                 break;
         }

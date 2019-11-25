@@ -1,14 +1,7 @@
-package com.example.finalyear.ui.User_profile;
+package com.example.finalyear.ui.doctors_gallery;
 
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,19 +9,27 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
+
 import com.example.finalyear.R;
+import com.example.finalyear.pojos.Docotor_User_pojos;
 import com.example.finalyear.pojos.User_pojos;
+import com.example.finalyear.ui.User_profile.User_profile_viewmodel;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class User_profile extends Fragment {
+public class Doctors_User_profile extends Fragment {
     private EditText nameET,AGeEt,numberEt,addressET;
     private Button SaveBTn;
-    private User_profile_viewmodel user_profile_viewmodel;
+    private Doctore_User_profile_viewmodel user_profile_viewmodel;
 
-    public User_profile() {
+    public Doctors_User_profile() {
 
     }
 
@@ -38,8 +39,8 @@ public class User_profile extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         setHasOptionsMenu(false);
-        user_profile_viewmodel= ViewModelProviders.of(this).get(User_profile_viewmodel.class);
-        return inflater.inflate(R.layout.fragment_user_profile, container, false);
+        user_profile_viewmodel= ViewModelProviders.of(this).get(Doctore_User_profile_viewmodel.class);
+        return inflater.inflate(R.layout.fragment_doctors_user_profile, container, false);
     }
 
     @Override
@@ -55,13 +56,13 @@ public class User_profile extends Fragment {
             @Override
             public void onClick(View v) {
                 String name=nameET.getText().toString();
-                String age=AGeEt.getText().toString();
+                String type=AGeEt.getText().toString();
                 String number=numberEt.getText().toString();
-                String address=addressET.getText().toString();
-                if (name.isEmpty() && age.isEmpty() && number.isEmpty() && address.isEmpty()){
+                String email=addressET.getText().toString();
+                if (name.isEmpty() && type.isEmpty() && number.isEmpty() && email.isEmpty()){
                     Toast.makeText(getActivity(), "provide info", Toast.LENGTH_SHORT).show();
                 }else {
-                    User_pojos user_pojos=new User_pojos(null,name,number,address,Integer.parseInt(age));
+                    Docotor_User_pojos user_pojos=new Docotor_User_pojos(null,name,number,email,type);
                     user_profile_viewmodel.save(user_pojos);
                     Toast.makeText(getActivity(), "saved", Toast.LENGTH_SHORT).show();
                     Navigation.findNavController(v).navigate(R.id.nav_home);

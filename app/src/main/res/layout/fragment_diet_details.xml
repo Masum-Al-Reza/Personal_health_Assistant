@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".Diet_details">
+    tools:context=".Consume.Diet_details">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/total_calloriesTV"
-android:text="ball"
+
         android:gravity="center"/>
     <TextView
         android:layout_width="match_parent"
@@ -36,6 +37,8 @@ android:text="call"
         android:layout_height="wrap_content"
         android:id="@+id/addcalloryBTN"
         android:text="add callory"/>
+
+
 
 
 

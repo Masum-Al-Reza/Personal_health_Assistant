@@ -1,4 +1,4 @@
-package com.example.finalyear;
+package com.example.finalyear.Consume;
 
 
 import android.content.DialogInterface;
@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.finalyear.Consume.ConsumeREpos;
 import com.example.finalyear.Consume.ConsumeViewmodel;
+import com.example.finalyear.R;
 import com.example.finalyear.firebase_repository.Eventviewmodel;
 import com.example.finalyear.helper.Help;
 import com.example.finalyear.pojos.Callories_pojos;
