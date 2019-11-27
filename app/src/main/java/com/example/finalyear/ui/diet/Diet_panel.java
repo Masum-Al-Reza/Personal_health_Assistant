@@ -1,10 +1,13 @@
 package com.example.finalyear.ui.diet;
 
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -19,9 +22,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.finalyear.Consume.Eventviewmodel;
 import com.example.finalyear.R;
 import com.example.finalyear.adapter.EventAdapter;
-import com.example.finalyear.firebase_repository.Eventviewmodel;
+
 import com.example.finalyear.pojos.Callories_pojos;
 
 import java.util.List;

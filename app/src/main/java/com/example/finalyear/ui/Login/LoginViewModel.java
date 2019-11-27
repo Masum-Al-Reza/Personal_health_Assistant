@@ -7,15 +7,16 @@ import androidx.lifecycle.ViewModel;
 import com.example.finalyear.firebase_repository.Firebase_repository;
 
 public class LoginViewModel extends ViewModel {
+    private Firebase_repository firebase_repository;
+    public MutableLiveData<Authenticaitionstate>statelivedata;
+    public MutableLiveData<String>errmsg=new MutableLiveData<>();
 
   public  enum Authenticaitionstate{
       AUTHENTICATED,
       UNAUTHENTICATED
 
   }
-  private Firebase_repository firebase_repository;
-  public MutableLiveData<Authenticaitionstate>statelivedata;
-  public MutableLiveData<String>errmsg=new MutableLiveData<>();
+
 public  LoginViewModel(){
     statelivedata=new MutableLiveData<>();
 

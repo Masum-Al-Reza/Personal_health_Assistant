@@ -13,6 +13,6 @@
         app:showAsAction="always"
         android:id="@+id/doctornav"
         />
-    
+
 
 </menu>

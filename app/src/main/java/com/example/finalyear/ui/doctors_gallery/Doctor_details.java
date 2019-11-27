@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.finalyear.R;
 import com.example.finalyear.pojos.Docotor_User_pojos;
@@ -45,6 +46,7 @@ public class Doctor_details extends Fragment {
         if (bundle!=null){
             eventid=bundle.getString("id");
             doctore_user_profile_viewmodel.eventdetails(eventid);
+            Toast.makeText(getActivity(), ""+eventid, Toast.LENGTH_SHORT).show();
 
         }
         return inflater.inflate(R.layout.fragment_doctor_details, container, false);
@@ -57,9 +59,9 @@ public class Doctor_details extends Fragment {
         doctorsEmailTV=view.findViewById(R.id.doctoremailTV);
         doctorsnumberTV=view.findViewById(R.id.doctornumberTV);
         doctorsTypeTV=view.findViewById(R.id.doctortypeTV);
-        callBTn=view.findViewById(R.id.DoctorcallBTN);
-        emailBTn=view.findViewById(R.id.doctoremailBTN);
-        galleryBTN=view.findViewById(R.id.doctor_galleryBTN);
+     //   callBTn=view.findViewById(R.id.DoctorcallBTN);
+       // emailBTn=view.findViewById(R.id.doctoremailBTN);
+      //  galleryBTN=view.findViewById(R.id.doctor_galleryBTN);
         doctore_user_profile_viewmodel.DoctordetailsLD.observe(this, new Observer<Docotor_User_pojos>() {
             @Override
             public void onChanged(Docotor_User_pojos docotor_user_pojos) {

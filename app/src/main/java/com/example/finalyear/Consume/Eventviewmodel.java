@@ -1,8 +1,9 @@
-package com.example.finalyear.firebase_repository;
+package com.example.finalyear.Consume;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.finalyear.firebase_repository.Eventrepostitory;
 import com.example.finalyear.pojos.Callories_pojos;
 import com.example.finalyear.pojos.Event_consume_pojos;
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -22,7 +23,7 @@ import android.widget.Toast;
 import com.example.finalyear.Consume.ConsumeREpos;
 import com.example.finalyear.Consume.ConsumeViewmodel;
 import com.example.finalyear.R;
-import com.example.finalyear.firebase_repository.Eventviewmodel;
+
 import com.example.finalyear.helper.Help;
 import com.example.finalyear.pojos.Callories_pojos;
 import com.example.finalyear.pojos.Event_consume_pojos;
@@ -36,7 +37,7 @@ import java.util.List;
 public class Diet_details extends Fragment {
     private Eventviewmodel eventviewmodel;
     private ConsumeViewmodel consumeViewmodel;
-    private Button addcalloryBTN;
+    private CardView addcalloryBTNsCV;
 
     private TextView details_calloryTV,total_calloriesTV,initial_calloriesTV,remaining_calloriesTV;
 
@@ -71,8 +72,8 @@ private  int Totalcals=0;
         total_calloriesTV=view.findViewById(R.id.total_calloriesTV);
         initial_calloriesTV=view.findViewById(R.id.initial_calloriesTV);
         remaining_calloriesTV=view.findViewById(R.id.remaining_calloriesTV);
+        addcalloryBTNsCV=view.findViewById(R.id.addcalloryBTNs);
 
-        addcalloryBTN=view.findViewById(R.id.addcalloryBTN);
 
         eventviewmodel.eventdetailsLD.observe(this, new Observer<Callories_pojos>() {
             @Override
@@ -97,7 +98,7 @@ private  int Totalcals=0;
                         initial_calloriesTV.setText("initial"+totalcallory);
             }
         });
-      addcalloryBTN.setOnClickListener(new View.OnClickListener() {
+      addcalloryBTNsCV.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
           showAddExpenseDialog();

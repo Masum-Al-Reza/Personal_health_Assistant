@@ -5,33 +5,38 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.User_profile.User_profile">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="200dp"
+    android:orientation="vertical">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="enter your name"
+        android:hint="enter Doctor name"
         android:id="@+id/nameinput"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/number_input"
-        android:hint="enter your number"/>
+        android:hint="enter  number"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="enter your age"
+        android:hint="doctor type"
         android:id="@+id/age_input"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/addressinput"
-        android:hint="enter your address"/>
+        android:hint="enter email address"
+        android:inputType="textEmailAddress"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/saveBtn"
         android:text="save"/>
-
+</LinearLayout>
 
 
 </LinearLayout>
