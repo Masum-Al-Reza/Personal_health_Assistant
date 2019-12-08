@@ -19,7 +19,7 @@ import com.example.finalyear.R;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    private CardView View_movies_cards,profileCV,Doctorsgallery_cv;
+    private CardView View_movies_cards,profileCV,Doctorsgallery_cv,WaterCV;
 
 
 
@@ -38,6 +38,7 @@ public class HomeFragment extends Fragment {
         View_movies_cards=view.findViewById(R.id.View_all_moviescard);
         profileCV=view.findViewById(R.id.View_all_profiles);
         Doctorsgallery_cv=view.findViewById(R.id.view_all_doctors);
+        WaterCV=view.findViewById(R.id.Watercv);
         View_movies_cards.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +55,14 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.action_nav_home_to_nav_gallery);
+
+            }
+        });
+        WaterCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_water_Reminder);
+
 
             }
         });

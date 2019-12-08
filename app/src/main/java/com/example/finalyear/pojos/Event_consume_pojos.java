@@ -13,7 +13,7 @@ public class Event_consume_pojos {
     public Event_consume_pojos(String consumeid, String eventId, String consumename, int callories, String consumeDateTime) {
         this.consumeid = consumeid;
         this.eventId = eventId;
-        Consumename = consumename;
+        this.Consumename = consumename;
         this.callories = callories;
         this.consumeDateTime = consumeDateTime;
     }

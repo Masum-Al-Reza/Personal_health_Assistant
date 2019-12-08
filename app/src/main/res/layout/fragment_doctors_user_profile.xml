@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.User_profile.User_profile">
+    tools:context="ui.medicine2_gallery.Medicine_User_profile">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -13,29 +13,56 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="enter Doctor name"
-        android:id="@+id/nameinput"/>
+        android:hint="enter Medicine  name"
+        android:id="@+id/Medicine_nameinput"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/number_input"
-        android:hint="enter  number"/>
-    <EditText
+        android:id="@+id/Medicine_type"
+        android:hint="Enter types of medicine"/>
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="doctor type"
-        android:id="@+id/age_input"/>
-    <EditText
+        android:hint="select date"
+        android:id="@+id/medicine_DAte_input"/>
+
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/addressinput"
-        android:hint="enter email address"
-        android:inputType="textEmailAddress"/>
+        android:textSize="20dp"
+        android:text="Enter the time of taking medicine" />
+
+    <CheckBox
+        android:id="@+id/morningCB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Morning" />
+    <CheckBox
+        android:id="@+id/NoonCB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Noon" />
+    <CheckBox
+        android:id="@+id/NightCB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="night" />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/saveBtn"
         android:text="save"/>
+    <Button
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:id="@+id/updateBTN"
+        android:text="update"/>
+
+
+
 </LinearLayout>
 
 

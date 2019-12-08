@@ -1,13 +1,10 @@
 package com.example.finalyear.ui.diet;
 
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -21,8 +18,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-import com.example.finalyear.Consume.Eventviewmodel;
+import com.example.finalyear.viewmodel.Eventviewmodel;
 import com.example.finalyear.R;
 import com.example.finalyear.adapter.EventAdapter;
 
@@ -38,6 +36,7 @@ public class Diet_panel extends Fragment {
     private Eventviewmodel eventviewmodel;
     private EventAdapter eventAdapter;
     private RecyclerView recyclerView;
+    private Button floating;
 
 
 
@@ -78,6 +77,7 @@ public class Diet_panel extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView=view.findViewById(R.id.DietRV);
+
         eventviewmodel.eventlistDB.observe(this, new Observer<List<Callories_pojos>>() {
             @Override
             public void onChanged(List<Callories_pojos> tourmateEvents) {

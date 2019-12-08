@@ -1,14 +1,15 @@
-package com.example.finalyear.Consume;
+package com.example.finalyear.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.finalyear.firebase_repository.ConsumeREpos;
 import com.example.finalyear.pojos.Event_consume_pojos;
 
 import java.util.List;
 
 public class ConsumeViewmodel extends ViewModel {
-    private  ConsumeREpos consumeREpos;
+    private ConsumeREpos consumeREpos;
     public MutableLiveData<List<Event_consume_pojos>> consumetlistDB=new MutableLiveData<>();
 
     public  ConsumeViewmodel(){

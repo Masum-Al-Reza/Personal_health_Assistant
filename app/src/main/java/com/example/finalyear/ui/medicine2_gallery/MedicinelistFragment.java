@@ -1,4 +1,4 @@
-package com.example.finalyear.ui.doctors_gallery;
+package com.example.finalyear.ui.medicine2_gallery;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,7 +7,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -19,21 +18,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalyear.R;
-import com.example.finalyear.adapter.Doctor_Adapter;
-import com.example.finalyear.pojos.Docotor_User_pojos;
+import com.example.finalyear.adapter.Medicine_Adapter;
+import com.example.finalyear.pojos.Medicine_User_pojos;
 
 import java.util.List;
 
-public class GalleryFragment extends Fragment {
-    private Doctor_Adapter doctor_adapter;
+public class MedicinelistFragment extends Fragment {
+    private Medicine_Adapter medicine_adapter;
     private RecyclerView recyclerView;
-    private Doctore_User_profile_viewmodel galleryViewModel;
+    private Mediicine_profile_viewmodel galleryViewModel;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         galleryViewModel =
-                ViewModelProviders.of(this).get(Doctore_User_profile_viewmodel.class);
+                ViewModelProviders.of(this).get(Mediicine_profile_viewmodel.class);
         View root = inflater.inflate(R.layout.fragment_gallery, container, false);
       setHasOptionsMenu(true);
         return root;
@@ -60,13 +59,13 @@ public class GalleryFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView=view.findViewById(R.id.doctorListRV);
-        galleryViewModel.eventlistDB.observe(this, new Observer<List<Docotor_User_pojos>>() {
+        galleryViewModel.eventlistDB.observe(this, new Observer<List<Medicine_User_pojos>>() {
             @Override
-            public void onChanged(List<Docotor_User_pojos> docotor_user_pojos) {
-                doctor_adapter = new Doctor_Adapter(getActivity(), docotor_user_pojos);
+            public void onChanged(List<Medicine_User_pojos> medicine_user_pojos) {
+                medicine_adapter = new Medicine_Adapter(getActivity(), medicine_user_pojos);
                 LinearLayoutManager llm = new LinearLayoutManager(getActivity());
                 recyclerView.setLayoutManager(llm);
-                recyclerView.setAdapter(doctor_adapter);
+                recyclerView.setAdapter(medicine_adapter);
             }
         });
     }

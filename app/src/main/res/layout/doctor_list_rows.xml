@@ -7,33 +7,66 @@
     android:clickable="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="6dp">
+
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/row_medicineName"
+            android:layout_width="174dp"
             android:layout_height="wrap_content"
-            android:id="@+id/row_doctorName"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="104dp"
             android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
         <TextView
+            android:id="@+id/row_medicine_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/row_doctortype"
-            android:textSize="12sp"
-            android:layout_below="@id/row_doctorName"
-            android:textStyle="italic"/>
+            android:layout_below="@id/row_medicineName"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/row_medicine_eat_time_morning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/row_medicine_type"
+            android:textSize="16sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/row_medicine_limitdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/row_medicine_eat_time_morning"
+            android:textSize="16sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/dateleft"
+            android:layout_width="81dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/row_medicine_limitdate"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="-15dp"
+            android:layout_marginEnd="101dp"
+            android:textSize="16sp"
+            android:textStyle="italic" />
+
         <TextView
             android:id="@+id/row_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:padding="20dp"
             android:text="&#8942;"
             android:textSize="25sp"
-            android:textStyle="bold"
-            android:layout_alignParentEnd="true"
-            android:padding="20dp"
-            android:layout_centerInParent="true"/>
+            android:textStyle="bold" />
 
     </RelativeLayout>
 

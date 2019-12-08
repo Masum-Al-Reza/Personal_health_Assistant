@@ -7,47 +7,65 @@
     android:clickable="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="6dp">
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/row_eventName"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/row_callorytype"
-            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/row_eventName"
-            android:textStyle="bold"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/row_callory_budget"
             android:textSize="16sp"
-            android:layout_below="@id/row_callorytype"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
         <TextView
+            android:id="@+id/row_callory_budget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/row_callorytype"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/row_departureDate"
-            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/row_callory_budget"
-            android:textStyle="italic"/>
+            android:textSize="16sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/dateleft"
+            android:layout_width="77dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/row_departureDate"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="-33dp"
+            android:layout_marginEnd="120dp"
+            android:textSize="16sp"
+            android:textStyle="italic" />
+
         <TextView
             android:id="@+id/row_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:padding="20dp"
             android:text="&#8942;"
             android:textSize="25sp"
-            android:textStyle="bold"
-            android:layout_alignParentEnd="true"
-            android:padding="20dp"
-            android:layout_centerInParent="true"/>
+            android:textStyle="bold" />
 
     </RelativeLayout>
 

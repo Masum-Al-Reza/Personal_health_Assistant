@@ -19,19 +19,19 @@
         <action
             android:id="@+id/action_nav_home_to_nav_gallery"
             app:destination="@id/nav_gallery" />
+        <action
+            android:id="@+id/action_nav_home_to_water_Reminder"
+            app:destination="@id/water_Reminder" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.finalyear.ui.doctors_gallery.GalleryFragment"
+        android:name="com.example.finalyear.ui.medicine2_gallery.MedicinelistFragment"
 
         tools:layout="@layout/fragment_gallery" >
         <action
             android:id="@+id/action_nav_gallery_to_doctors_User_profile"
             app:destination="@id/doctors_User_profile" />
-        <action
-            android:id="@+id/action_nav_gallery_to_doctor_details"
-            app:destination="@id/doctor_details" />
     </fragment>
 
     <fragment
@@ -42,7 +42,7 @@
 
     <fragment
         android:id="@+id/nav_tools"
-        android:name="com.example.finalyear.ui.Login.LoginFragment"
+        android:name="com.example.finalyear.ui.Login.Register_fragment"
 
         tools:layout="@layout/fragment_login" >
         <action
@@ -102,14 +102,33 @@
         android:id="@+id/diet_details"
         android:name="com.example.finalyear.Consume.Diet_details"
         android:label="fragment_diet_details"
-        tools:layout="@layout/fragment_diet_details" />
+        tools:layout="@layout/fragment_diet_details" >
+        <action
+            android:id="@+id/action_diet_details_to_medicin_history"
+            app:destination="@id/medicin_history" />
+    </fragment>
     <fragment
         android:id="@+id/doctors_User_profile"
-        android:name="com.example.finalyear.ui.doctors_gallery.Doctors_User_profile"
+        android:name="com.example.finalyear.ui.medicine2_gallery.Medicine_User_profile"
         android:label="Doctors_User_profile" />
     <fragment
-        android:id="@+id/doctor_details"
-        android:name="com.example.finalyear.ui.doctors_gallery.Doctor_details"
-        android:label="fragment_doctor_details"
-        tools:layout="@layout/fragment_doctor_details" />
+        android:id="@+id/medicin_history"
+        android:name="com.example.finalyear.Callories_history"
+        android:label="fragment_medicin_history"
+        tools:layout="@layout/fragment_callories_history" />
+    <fragment
+        android:id="@+id/profile_user"
+        android:name="com.example.finalyear.Profile_user"
+        android:label="fragment_profile_user"
+        tools:layout="@layout/fragment_profile_user" />
+    <fragment
+        android:id="@+id/water_Reminder"
+        android:name="com.example.finalyear.Water_Reminder"
+        android:label="fragment_water__reminder"
+        tools:layout="@layout/fragment_water__reminder" />
+    <fragment
+        android:id="@+id/regestration"
+        android:name="com.example.finalyear.Login_user"
+        android:label="fragment_regestration"
+        tools:layout="@layout/fragment_regestration" />
 </navigation>

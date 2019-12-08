@@ -21,6 +21,7 @@ public class User_profile_repository {
     private  DatabaseReference eventref;
     private FirebaseUser firebaseUser;
     public MutableLiveData<List<User_pojos>> eventlistDB=new MutableLiveData<>();
+    public MutableLiveData<User_pojos> eventdetailsLD=new MutableLiveData<>();
 
     public  User_profile_repository(){
     firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
@@ -48,8 +49,26 @@ public class User_profile_repository {
 
 }
     public  void  addevent_to_db(User_pojos event ){
-        String EventID=eventref.push().getKey();
+        String EventID=eventref.getKey();
         event.setProfileID(EventID);
         eventref.child(EventID).setValue(event);
+    }
+    public  MutableLiveData<User_pojos> getevetdetailsByEventid(String eventid){
+
+
+        eventref.child(eventid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                User_pojos callories_pojos=dataSnapshot.getValue(User_pojos.class);
+                eventdetailsLD.postValue(callories_pojos);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        return  eventdetailsLD;
     }
 }

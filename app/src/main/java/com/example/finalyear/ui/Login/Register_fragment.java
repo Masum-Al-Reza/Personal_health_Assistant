@@ -19,8 +19,8 @@ import androidx.navigation.Navigation;
 
 import com.example.finalyear.R;
 
-public class LoginFragment extends Fragment {
-    private EditText emalEt,passET;
+public class Register_fragment extends Fragment {
+    private EditText emalEt,passET,confirmpassET;
     private Button loginBTn,REgBTn;
     private TextView statustTV;
 
@@ -30,6 +30,7 @@ public class LoginFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         loginViewModel =
                 ViewModelProviders.of(this).get(LoginViewModel.class);
         View root = inflater.inflate(R.layout.fragment_login, container, false);
@@ -46,22 +47,21 @@ public class LoginFragment extends Fragment {
         REgBTn=view.findViewById(R.id.registerbutton);
         loginBTn=view.findViewById(R.id.loginbtn);
         statustTV=view.findViewById(R.id.statusTV);
+        confirmpassET=view.findViewById(R.id.confirmpasswrodinput);
 
-        loginBTn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email=emalEt.getText().toString();
-                String password=passET.getText().toString();
-                loginViewModel.Login(email,password);
-
-            }
-        });
+       /**/
         REgBTn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email=emalEt.getText().toString();
                 String password=passET.getText().toString();
-               loginViewModel.register(email,password);
+                String confirmpass=confirmpassET.getText().toString();
+                if (password.equals(confirmpass)){
+                    loginViewModel.register(email,password);
+                }else {
+                    Toast.makeText(getActivity(), "password not match", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 

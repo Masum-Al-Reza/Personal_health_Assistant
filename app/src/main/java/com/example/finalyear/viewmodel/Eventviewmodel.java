@@ -1,4 +1,4 @@
-package com.example.finalyear.Consume;
+package com.example.finalyear.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -24,7 +24,17 @@ public  void  save(Callories_pojos event){
 
     eventrepostitory.addevent_to_db(event);
 }
-public  void  eventdetails(String eventid){
+    public  void  delete(Callories_pojos event){
+
+        eventrepostitory.delete(event);
+    }
+    public  void  update(Callories_pojos event){
+
+        eventrepostitory.update(event);
+    }
+
+
+    public  void  eventdetails(String eventid){
     eventdetailsLD=eventrepostitory.getevetdetailsByEventid(eventid);
 }
 

@@ -3,36 +3,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     android:orientation="vertical"
     tools:context=".ui.diet.Diet_Plan">
 
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/inputeventname"
-        android:hint="Enter a plan name"/>
+        android:layout_marginTop="200dp"
+        android:orientation="vertical">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/inputdestination"
-        android:hint="Enter a type of diet plan"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/inputbudget"
-        android:inputType="number"
-        android:hint="target consume callories"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/add_dateBTN"
-        android:text="depurture date"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/eventaddBTn"
-        android:text="Add event"/>
+        <EditText
+            android:id="@+id/inputeventname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter a plan name"
+            android:textColorHint="@color/common_google_signin_btn_text_dark_default" />
+
+        <EditText
+            android:id="@+id/inputdestination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter a type of diet plan"
+            android:textColorHint="@color/common_google_signin_btn_text_dark_default" />
+
+        <EditText
+            android:id="@+id/inputbudget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="target consume callories"
+            android:inputType="number"
+            android:textColorHint="@color/common_google_signin_btn_text_dark_default" />
+
+        <Button
+            android:id="@+id/add_dateBTN"
+            android:layout_width="200dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text=" date" />
+
+        <Button
+            android:id="@+id/eventaddBTn"
+            android:layout_width="200dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Add " />
+
+        <Button
+            android:id="@+id/Update_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="update"
+            android:visibility="gone" />
+    </LinearLayout>
 
 
 </LinearLayout>

@@ -10,6 +10,7 @@ import java.util.List;
 public class User_profile_viewmodel extends ViewModel {
     private User_profile_repository user_profile_repository;
     public MutableLiveData<List<User_pojos>> eventlistDB=new MutableLiveData<>();
+    public MutableLiveData<User_pojos> eventdetailsLD=new MutableLiveData<>();
 
     public User_profile_viewmodel(){
         user_profile_repository=new User_profile_repository();
@@ -19,6 +20,10 @@ public class User_profile_viewmodel extends ViewModel {
     public  void  save(User_pojos event){
 
         user_profile_repository.addevent_to_db(event);
+    }
+    public  void  geteventdetails(String eventid){
+        eventdetailsLD=user_profile_repository.getevetdetailsByEventid(eventid);
+
     }
 
 }

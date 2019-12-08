@@ -1,10 +1,13 @@
 package com.example.finalyear.firebase_repository;
 
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.finalyear.pojos.Callories_pojos;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,7 +30,8 @@ public class Eventrepostitory {
         firebaseUser=FirebaseAuth.getInstance().getCurrentUser();
         rootref= FirebaseDatabase.getInstance().getReference();
         userref=rootref.child(firebaseUser.getUid());
-        eventref=userref.child("event");
+        eventref=userref.child("Diet plan");
+        eventref.keepSynced(true);
         eventref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -46,6 +50,29 @@ public class Eventrepostitory {
 
 
     }
+    public  void delete(Callories_pojos event){
+        String EventID=event.getEventID();
+        event.setEventID(EventID);
+        eventref.child(EventID).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+
+            }
+        });
+    }
+    public  void  update(Callories_pojos callories_pojos){
+        String EventID=callories_pojos.getEventID();
+        callories_pojos.setEventID(EventID);
+        eventref.child(EventID).setValue(callories_pojos).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+
+            }
+        });
+
+
+    }
+
 public  void  addevent_to_db(Callories_pojos event ){
         String EventID=eventref.push().getKey();
         event.setEventID(EventID);

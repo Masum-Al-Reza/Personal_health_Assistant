@@ -7,7 +7,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Smart health Consult</string>
+    <string name="menu_home">Personal health Assistent</string>
     <string name="doctor_list">Doctors gallery</string>
     <string name="Medicine_list">Medicine gallery</string>
     <string name="Log_in">Login</string>

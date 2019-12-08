@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 
@@ -18,7 +19,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.finalyear.Consume.Eventviewmodel;
+import com.example.finalyear.helper.Help;
+import com.example.finalyear.viewmodel.Eventviewmodel;
 import com.example.finalyear.R;
 
 import com.example.finalyear.pojos.Callories_pojos;
@@ -32,9 +34,12 @@ import java.util.Calendar;
  */
 public class Diet_Plan extends Fragment {
     private EditText EventnameEt,destinationET,budgetET;
-    private Button addeventBTn,DateBTn;
+    private Button addeventBTn,DateBTn,updateBTn;
     private Eventviewmodel eventviewmodel;
     private String Callorydate;
+    private  String EventID;
+    private Help help;
+
 
     public Diet_Plan() {
         // Required empty public constructor
@@ -46,6 +51,32 @@ public class Diet_Plan extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         eventviewmodel= ViewModelProviders.of(this).get(Eventviewmodel.class);
+        Bundle bundle=getArguments();
+        if (bundle !=null){
+
+            EventID=bundle.getString("id");
+            eventviewmodel.eventdetails(EventID);
+            eventviewmodel.eventdetailsLD.observe(this, new Observer<Callories_pojos>() {
+                @Override
+                public void onChanged(Callories_pojos callories_pojos) {
+                    EventnameEt.setText(callories_pojos.getDietname());
+                    destinationET.setText(callories_pojos.getDiet_type());
+                    budgetET.setText(String.valueOf(callories_pojos.getBudget()));
+                  Callorydate=callories_pojos.getCallories_date();
+                   addeventBTn.setVisibility(View.GONE);
+                   updateBTn.setVisibility(View.VISIBLE);
+
+
+
+
+
+
+                }
+            });
+
+
+
+        }
         return inflater.inflate(R.layout.fragment_diet__plan, container, false);
     }
 
@@ -57,7 +88,28 @@ public class Diet_Plan extends Fragment {
 
         budgetET=view.findViewById(R.id.inputbudget);
         addeventBTn=view.findViewById(R.id.eventaddBTn);
+        updateBTn=view.findViewById(R.id.Update_event);
         DateBTn=view.findViewById(R.id.add_dateBTN);
+        updateBTn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String Diet_name= EventnameEt.getText().toString();
+                String Diet_type=destinationET.getText().toString();
+                String Target_callory=budgetET.getText().toString();
+                if (Diet_name.isEmpty() && Diet_type.isEmpty()  && Target_callory.isEmpty()){
+                    Toast.makeText(getActivity(), "provide all info", Toast.LENGTH_SHORT).show();
+
+                }else {
+                    Callories_pojos event=new Callories_pojos(EventID,Diet_name,Diet_type,Integer.parseInt(Target_callory), Callorydate,Help.getvurrentdate());
+                    eventviewmodel.update(event);
+                    Navigation.findNavController(v)
+                            .navigate(R.id.action_diet_Plan_to_diet_panel);
+
+
+                }
+
+            }
+        });
         addeventBTn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,7 +120,7 @@ public class Diet_Plan extends Fragment {
                     Toast.makeText(getActivity(), "provide all info", Toast.LENGTH_SHORT).show();
 
                 }else {
-                   Callories_pojos event=new Callories_pojos(null,Diet_name,Diet_type,Integer.parseInt(Target_callory), Callorydate);
+                   Callories_pojos event=new Callories_pojos(null,Diet_name,Diet_type,Integer.parseInt(Target_callory), Callorydate,Help.getvurrentdate());
                    eventviewmodel.save(event);
                     Navigation.findNavController(view)
                             .navigate(R.id.action_diet_Plan_to_diet_panel);
@@ -86,6 +138,7 @@ public class Diet_Plan extends Fragment {
             }
         });
 
+
     }
     private void datedialogshow() {
         Calendar calendar=Calendar.getInstance();
@@ -100,7 +153,7 @@ public class Diet_Plan extends Fragment {
         public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
             Calendar calendar=Calendar.getInstance();
             calendar.set(i,i1,i2);
-            Callorydate =new SimpleDateFormat("dd/mm/yyyy").format(calendar.getTime());
+            Callorydate =new SimpleDateFormat("dd/MM/yyyy").format(calendar.getTime());
             DateBTn.setText(Callorydate);
         }
     };
