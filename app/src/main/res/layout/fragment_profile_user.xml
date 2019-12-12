@@ -2,8 +2,10 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="600dp"
+
     android:layout_margin="30dp"
+    android:layout_gravity="center"
     tools:context=".Profile_user">
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,19 +24,20 @@
             android:text=""
             android:textSize="20dp"/>
         <TextView
-            android:id="@+id/user_emailTV"
+            android:id="@+id/user_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/userweihtTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
             android:textSize="20dp"/>
         <TextView
-            android:id="@+id/user_addressTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="20dp"/>
-        <TextView
-            android:id="@+id/userweghtTV"
+            android:id="@+id/userheihtTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""

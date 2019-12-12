@@ -7,6 +7,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -34,7 +35,8 @@ public class MedicinelistFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+       // ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+
 
         galleryViewModel =
                 ViewModelProviders.of(this).get(Mediicine_profile_viewmodel.class);

@@ -14,9 +14,11 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.finalyear.viewmodel.LoginViewModel;
 
@@ -36,7 +38,18 @@ public class Login_user_fragment extends Fragment {
 
     public Login_user_fragment() {
         // Required empty public constructor
+
     }
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
+    }
+
 
 
     @Override
@@ -45,14 +58,17 @@ public class Login_user_fragment extends Fragment {
         // Inflate the layout for this fragment
        // ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
+
         loginViewModel =
                 ViewModelProviders.of(this).get(LoginViewModel.class);
         return inflater.inflate(R.layout.fragment_logiin, container, false);
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        view.setSystemUiVisibility(uiOptions);
         emalEt=view.findViewById(R.id.usernameinput);
         passET=view.findViewById(R.id.passwrodinput);
         REgBTn=view.findViewById(R.id.registerbutton);
@@ -67,6 +83,19 @@ public class Login_user_fragment extends Fragment {
 
             }
         });
+        loginViewModel.statelivedata.observe(this, new Observer<LoginViewModel.Authenticaitionstate>() {
+            @Override
+            public void onChanged(LoginViewModel.Authenticaitionstate authenticaitionstate) {
+                switch (authenticaitionstate){
+                    case AUTHENTICATED:
+                        Navigation.findNavController(view).navigate(R.id.action_regestration_to_nav_home);
+                        Toast.makeText(getActivity(), "success", Toast.LENGTH_SHORT).show();
+                        break;
+                    case UNAUTHENTICATED:
+                        break;
+                }
+            }
+        });
         loginViewModel.errmsg.observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
@@ -79,6 +108,8 @@ public class Login_user_fragment extends Fragment {
                 Navigation.findNavController(v).navigate(R.id.action_regestration_to_nav_tools);
             }
         });
+
     }
+
 
 }

@@ -45,8 +45,8 @@ public class User_profile_repository {
         eventref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                User_pojos callories_pojos=dataSnapshot.getValue(User_pojos.class);
-                eventdetailsLD.postValue(callories_pojos);
+                User_pojos user_pojos=dataSnapshot.getValue(User_pojos.class);
+                eventdetailsLD.postValue(user_pojos);
 
             }
 

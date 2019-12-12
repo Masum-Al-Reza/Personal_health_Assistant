@@ -4,18 +4,39 @@ public class User_pojos {
     private String profileID;
     private  String profilename;
     private String  number;
-    private  String address;
+    private String  gender;
+    private float Weight;
+    private float height;
     private  int age;
 
     public User_pojos() {
     }
 
-    public User_pojos(String profileID, String profilename, String number, String address, int age) {
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public User_pojos(String profileID, String profilename, String number, String gender, float weight, float height, int age) {
         this.profileID = profileID;
         this.profilename = profilename;
         this.number = number;
-        this.address = address;
+        this.Weight = weight;
+        this.gender=gender;
         this.age = age;
+        this.height=height;
+    }
+
+
+    public float getHeight() {
+        return height;
+    }
+
+    public void setHeight(float height) {
+        this.height = height;
     }
 
     public String getProfileID() {
@@ -42,12 +63,12 @@ public class User_pojos {
         this.number = number;
     }
 
-    public String getAddress() {
-        return address;
+    public float getWeight() {
+        return Weight;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setWeight(float weight) {
+        Weight = weight;
     }
 
     public int getAge() {

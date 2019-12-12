@@ -26,7 +26,7 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
  * A simple {@link Fragment} subclass.
  */
 public class Profile_user extends Fragment {
-    private TextView NameTV,EmailTV,phnnumberTV,weightTV,genderTV,AddressTV;
+    private TextView NameTV,phnnumberTV,weightTV,genderTV,heightTV;
     private Button UPdateBTN;
     private User_profile_viewmodel user_profile_viewmodel;
     private  String Eventid;
@@ -43,7 +43,7 @@ public class Profile_user extends Fragment {
         // Inflate the layout for this fragment
         user_profile_viewmodel= ViewModelProviders.of(this).get(User_profile_viewmodel.class);
 
-        user_profile_viewmodel.geteventdetails();
+        user_profile_viewmodel.getuserdetails();
 
         return inflater.inflate(R.layout.fragment_profile_user, container, false);
     }
@@ -55,17 +55,22 @@ public class Profile_user extends Fragment {
 
 
         NameTV=view.findViewById(R.id.usernameTV);
-        EmailTV=view.findViewById(R.id.user_emailTV);
-        AddressTV=view.findViewById(R.id.user_addressTV);
+        phnnumberTV=view.findViewById(R.id.user_number);
+        weightTV=view.findViewById(R.id.userweihtTV);
         genderTV=view.findViewById(R.id.User_gender);
-        weightTV=view.findViewById(R.id.userweghtTV);
+        heightTV=view.findViewById(R.id.userheihtTV);
 
         UPdateBTN=view.findViewById(R.id.updateBTN);
-        user_profile_viewmodel.eventdetailsLD.observe(this, new Observer<User_pojos>() {
+        user_profile_viewmodel.userdetailsLD.observe(this, new Observer<User_pojos>() {
             @Override
             public void onChanged(User_pojos user_pojos) {
                 Log.i(TAG, "onChanged: "+user_pojos.getProfilename());
                 NameTV.setText(user_pojos.getProfilename());
+                phnnumberTV.setText(user_pojos.getGender());
+                genderTV.setText(user_pojos.getNumber());
+                heightTV.setText(String.valueOf(user_pojos.getHeight())+"inch");
+                weightTV.setText(String.valueOf(user_pojos.getWeight())+"kg");
+
             }
         });
 
