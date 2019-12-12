@@ -1,10 +1,11 @@
-package com.example.finalyear.ui.Login;
+package com.example.finalyear.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.finalyear.firebase_repository.Firebase_repository;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginViewModel extends ViewModel {
     private Firebase_repository firebase_repository;
@@ -37,6 +38,11 @@ public  void Login(String email,String password){
     }
 
 
+    public  void Logout(){
+        FirebaseAuth.getInstance().signOut();
+        statelivedata.postValue(Authenticaitionstate.UNAUTHENTICATED);
 
+
+    }
 
 }

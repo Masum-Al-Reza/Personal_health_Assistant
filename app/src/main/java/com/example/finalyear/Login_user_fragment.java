@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -17,13 +18,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.finalyear.ui.Login.LoginViewModel;
+import com.example.finalyear.viewmodel.LoginViewModel;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Login_user extends Fragment {
+public class Login_user_fragment extends Fragment {
     private EditText emalEt,passET,confirmpassET;
     private Button loginBTn,REgBTn;
     private TextView statustTV;
@@ -33,7 +34,7 @@ public class Login_user extends Fragment {
     private LoginViewModel loginViewModel;
 
 
-    public Login_user() {
+    public Login_user_fragment() {
         // Required empty public constructor
     }
 
@@ -42,9 +43,11 @@ public class Login_user extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+       // ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+
         loginViewModel =
                 ViewModelProviders.of(this).get(LoginViewModel.class);
-        return inflater.inflate(R.layout.fragment_regestration, container, false);
+        return inflater.inflate(R.layout.fragment_logiin, container, false);
     }
 
     @Override
@@ -73,7 +76,7 @@ public class Login_user extends Fragment {
         REgBTn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.regestration);
+                Navigation.findNavController(v).navigate(R.id.action_regestration_to_nav_tools);
             }
         });
     }

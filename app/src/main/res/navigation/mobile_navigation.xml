@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/nav_tools">
+    app:startDestination="@id/regestration">
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.finalyear.ui.home.HomeFragment"
+        android:name="com.example.finalyear.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home">
         <action
@@ -22,11 +22,16 @@
         <action
             android:id="@+id/action_nav_home_to_water_Reminder"
             app:destination="@id/water_Reminder" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_tools"
+            app:destination="@id/nav_tools"
+            app:popUpTo="@+id/nav_home"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.finalyear.ui.medicine2_gallery.MedicinelistFragment"
+        android:name="com.example.finalyear.MedicinelistFragment"
 
         tools:layout="@layout/fragment_gallery" >
         <action
@@ -36,15 +41,15 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.finalyear.ui.Medicine_gallery.SlideshowFragment"
+        android:name="com.example.finalyear.SlideshowFragment"
 
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
         android:id="@+id/nav_tools"
-        android:name="com.example.finalyear.ui.Login.Register_fragment"
+        android:name="com.example.finalyear.Register_fragment"
 
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_Registration" >
         <action
             android:id="@+id/action_nav_tools_to_nav_home"
             app:destination="@id/nav_home"
@@ -69,12 +74,12 @@
         tools:layout="@layout/fragment_send" />
     <fragment
         android:id="@+id/user_profile"
-        android:name="com.example.finalyear.ui.User_profile.User_profile"
+        android:name="com.example.finalyear.User_profile_fragment"
         android:label="fragment_user_profile"
         tools:layout="@layout/fragment_user_profile" />
     <fragment
         android:id="@+id/diet_panel"
-        android:name="com.example.finalyear.ui.diet.Diet_panel"
+        android:name="com.example.finalyear.Diet_panel_fragment"
         android:label="fragment_diet_panel"
         tools:layout="@layout/fragment_diet_panel" >
         <action
@@ -91,7 +96,7 @@
         tools:layout="@layout/fragment_diet__suggesiton" />
     <fragment
         android:id="@+id/diet_Plan"
-        android:name="com.example.finalyear.ui.diet.Diet_Plan"
+        android:name="com.example.finalyear.Diet_Plan_fragment"
         android:label="fragment_diet__plan"
         tools:layout="@layout/fragment_diet__plan" >
         <action
@@ -100,7 +105,7 @@
     </fragment>
     <fragment
         android:id="@+id/diet_details"
-        android:name="com.example.finalyear.Consume.Diet_details"
+        android:name="com.example.finalyear.Diet_details_fragment"
         android:label="fragment_diet_details"
         tools:layout="@layout/fragment_diet_details" >
         <action
@@ -109,7 +114,7 @@
     </fragment>
     <fragment
         android:id="@+id/doctors_User_profile"
-        android:name="com.example.finalyear.ui.medicine2_gallery.Medicine_User_profile"
+        android:name="com.example.finalyear.Medicine_User_profile_fragment"
         android:label="Doctors_User_profile" />
     <fragment
         android:id="@+id/medicin_history"
@@ -128,7 +133,14 @@
         tools:layout="@layout/fragment_water__reminder" />
     <fragment
         android:id="@+id/regestration"
-        android:name="com.example.finalyear.Login_user"
+        android:name="com.example.finalyear.Login_user_fragment"
         android:label="fragment_regestration"
-        tools:layout="@layout/fragment_regestration" />
+        tools:layout="@layout/fragment_logiin" >
+        <action
+            android:id="@+id/action_regestration_to_nav_tools"
+            app:destination="@id/nav_tools" />
+        <action
+            android:id="@+id/action_regestration_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 </navigation>

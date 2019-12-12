@@ -1,4 +1,4 @@
-package com.example.finalyear.ui.Login;
+package com.example.finalyear;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,13 +11,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 
-import com.example.finalyear.R;
+import com.example.finalyear.viewmodel.LoginViewModel;
 
 public class Register_fragment extends Fragment {
     private EditText emalEt,passET,confirmpassET;
@@ -31,9 +30,11 @@ public class Register_fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
+
+
         loginViewModel =
                 ViewModelProviders.of(this).get(LoginViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_login, container, false);
+        View root = inflater.inflate(R.layout.fragment_registration, container, false);
 
 
         return root;

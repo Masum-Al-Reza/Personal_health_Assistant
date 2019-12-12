@@ -1,10 +1,11 @@
-package com.example.finalyear.ui.User_profile;
+package com.example.finalyear;
 
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
@@ -16,14 +17,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.finalyear.R;
 import com.example.finalyear.pojos.User_pojos;
+import com.example.finalyear.viewmodel.User_profile_viewmodel;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class User_profile extends Fragment {
+public class User_profile_fragment extends Fragment {
      private String eventID;
     private EditText nameET,AGeEt,numberEt,addressET;
 
@@ -31,7 +32,7 @@ public class User_profile extends Fragment {
     private Button SaveBTn;
     private User_profile_viewmodel user_profile_viewmodel;
 
-    public User_profile() {
+    public User_profile_fragment() {
 
     }
 
@@ -41,6 +42,7 @@ public class User_profile extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         setHasOptionsMenu(false);
+
         user_profile_viewmodel= ViewModelProviders.of(this).get(User_profile_viewmodel.class);
         return inflater.inflate(R.layout.fragment_user_profile, container, false);
     }
@@ -61,8 +63,8 @@ public class User_profile extends Fragment {
         SaveBTn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putString("id",eventID);
+
+
 
                 String name=nameET.getText().toString();
                 String age=AGeEt.getText().toString();
@@ -76,7 +78,7 @@ public class User_profile extends Fragment {
                             ,name,number,address,Integer.parseInt(age));
                     user_profile_viewmodel.save(user_pojos);
                     Toast.makeText(getActivity(), "saved", Toast.LENGTH_SHORT).show();
-                    Navigation.findNavController(v).navigate(R.id.profile_user,bundle);
+                    Navigation.findNavController(v).navigate(R.id.profile_user);
                  
                 }
 

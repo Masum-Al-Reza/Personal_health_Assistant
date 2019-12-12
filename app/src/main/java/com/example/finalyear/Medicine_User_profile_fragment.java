@@ -1,4 +1,4 @@
-package com.example.finalyear.ui.medicine2_gallery;
+package com.example.finalyear;
 
 
 import android.app.DatePickerDialog;
@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.QuickContactBadge;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,10 +19,9 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 
-import com.example.finalyear.R;
 import com.example.finalyear.helper.Help;
 import com.example.finalyear.pojos.Medicine_User_pojos;
-import com.example.finalyear.viewmodel.Eventviewmodel;
+import com.example.finalyear.viewmodel.Mediicine_profile_viewmodel;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,7 +31,7 @@ import java.util.Calendar;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Medicine_User_profile extends Fragment {
+public class Medicine_User_profile_fragment extends Fragment {
     private EditText Medicine_nameET, Medicine_type;
     private Button SaveBTn,MedicinedateBTN,UpdateBTN;
     private CheckBox MorningCB,noonCB,nightCB;
@@ -42,7 +40,7 @@ public class Medicine_User_profile extends Fragment {
     private String medicinedate;
     private Mediicine_profile_viewmodel user_profile_viewmodel;
 
-    public Medicine_User_profile() {
+    public Medicine_User_profile_fragment() {
 
     }
 

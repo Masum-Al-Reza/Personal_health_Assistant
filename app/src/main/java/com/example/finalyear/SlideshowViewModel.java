@@ -1,4 +1,4 @@
-package com.example.finalyear.ui.Medicine_gallery;
+package com.example.finalyear;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

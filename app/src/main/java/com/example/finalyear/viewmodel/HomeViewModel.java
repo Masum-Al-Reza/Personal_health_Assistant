@@ -1,4 +1,4 @@
-package com.example.finalyear.ui.home;
+package com.example.finalyear.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

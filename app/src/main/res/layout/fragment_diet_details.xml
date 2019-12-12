@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
     android:orientation="vertical"
-    tools:context=".Consume.Diet_details">
+    tools:context=".Diet_details_fragment">
 
     <androidx.cardview.widget.CardView
         android:layout_width="262dp"

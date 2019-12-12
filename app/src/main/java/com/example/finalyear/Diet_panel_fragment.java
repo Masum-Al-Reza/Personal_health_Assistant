@@ -1,4 +1,4 @@
-package com.example.finalyear.ui.diet;
+package com.example.finalyear;
 
 
 import android.os.Bundle;
@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Diet_panel extends Fragment {
+public class Diet_panel_fragment extends Fragment {
     private Eventviewmodel eventviewmodel;
     private EventAdapter eventAdapter;
     private RecyclerView recyclerView;
@@ -40,7 +40,7 @@ public class Diet_panel extends Fragment {
 
 
 
-    public Diet_panel() {
+    public Diet_panel_fragment() {
         // Required empty public constructor
     }
 

@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.finalyear.R;
 import com.example.finalyear.helper.Help;
 import com.example.finalyear.pojos.Medicine_User_pojos;
-import com.example.finalyear.ui.medicine2_gallery.Mediicine_profile_viewmodel;
+import com.example.finalyear.viewmodel.Mediicine_profile_viewmodel;
 
 import java.util.List;
 

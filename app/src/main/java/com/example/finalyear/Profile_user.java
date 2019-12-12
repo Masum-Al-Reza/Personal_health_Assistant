@@ -8,19 +8,18 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.finalyear.pojos.User_pojos;
-import com.example.finalyear.ui.User_profile.User_profile_viewmodel;
+import com.example.finalyear.viewmodel.User_profile_viewmodel;
 
-import java.util.List;
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 
 /**
@@ -43,14 +42,9 @@ public class Profile_user extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         user_profile_viewmodel= ViewModelProviders.of(this).get(User_profile_viewmodel.class);
-        Bundle bundle=getArguments();
-        if (bundle!=null){
-            Eventid=bundle.getString("id");
-            user_profile_viewmodel.geteventdetails(Eventid);
-            Toast.makeText(getActivity(), "size"+Eventid, Toast.LENGTH_SHORT).show();
 
+        user_profile_viewmodel.geteventdetails();
 
-        }
         return inflater.inflate(R.layout.fragment_profile_user, container, false);
     }
 
@@ -70,6 +64,7 @@ public class Profile_user extends Fragment {
         user_profile_viewmodel.eventdetailsLD.observe(this, new Observer<User_pojos>() {
             @Override
             public void onChanged(User_pojos user_pojos) {
+                Log.i(TAG, "onChanged: "+user_pojos.getProfilename());
                 NameTV.setText(user_pojos.getProfilename());
             }
         });

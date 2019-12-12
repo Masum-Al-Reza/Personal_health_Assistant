@@ -3,7 +3,7 @@ package com.example.finalyear.firebase_repository;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.finalyear.ui.Login.LoginViewModel;
+import com.example.finalyear.viewmodel.LoginViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;

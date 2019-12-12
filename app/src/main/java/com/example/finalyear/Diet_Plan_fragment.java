@@ -1,4 +1,4 @@
-package com.example.finalyear.ui.diet;
+package com.example.finalyear;
 
 
 import android.app.DatePickerDialog;
@@ -32,7 +32,7 @@ import java.util.Calendar;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Diet_Plan extends Fragment {
+public class Diet_Plan_fragment extends Fragment {
     private EditText EventnameEt,destinationET,budgetET;
     private Button addeventBTn,DateBTn,updateBTn;
     private Eventviewmodel eventviewmodel;
@@ -41,7 +41,7 @@ public class Diet_Plan extends Fragment {
     private Help help;
 
 
-    public Diet_Plan() {
+    public Diet_Plan_fragment() {
         // Required empty public constructor
     }
 

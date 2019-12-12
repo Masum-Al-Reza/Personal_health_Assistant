@@ -1,4 +1,4 @@
-package com.example.finalyear.Consume;
+package com.example.finalyear;
 
 
 import android.content.DialogInterface;
@@ -30,7 +30,7 @@ import com.example.finalyear.viewmodel.Eventviewmodel;
 
 import java.util.List;
 
-public class Diet_details extends Fragment {
+public class Diet_details_fragment extends Fragment {
     private Eventviewmodel eventviewmodel;
     private ConsumeViewmodel consumeViewmodel;
     private CardView addcalloryBTNsCV, viewhistoryCV;
@@ -40,7 +40,7 @@ public class Diet_details extends Fragment {
     private String eventid = null;
     private int Totalcals = 0;
 
-    public Diet_details() {
+    public Diet_details_fragment() {
         // Required empty public constructor
     }
 

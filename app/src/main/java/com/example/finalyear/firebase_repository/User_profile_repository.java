@@ -1,4 +1,4 @@
-package com.example.finalyear.ui.User_profile;
+package com.example.finalyear.firebase_repository;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
@@ -29,34 +29,20 @@ public class User_profile_repository {
     userref=rootref.child(firebaseUser.getUid());
     eventref=userref.child("User profile");
 
-    eventref.addValueEventListener(new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            List<User_pojos> events=new ArrayList<>();
-            for (DataSnapshot d: dataSnapshot.getChildren()){
-                events.add(d.getValue(User_pojos.class));
-                eventlistDB.postValue(events);
-            }
-
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-        }
-    });
 
 
 }
     public  void  addevent_to_db(User_pojos event ){
-        String EventID=eventref.getKey();
-        event.setProfileID(EventID);
-        eventref.child(EventID).setValue(event);
+
+        eventref.setValue(event);
     }
-    public  MutableLiveData<User_pojos> getevetdetailsByEventid(String eventid){
 
 
-        eventref.child(eventid).addValueEventListener(new ValueEventListener() {
+
+    public  MutableLiveData<User_pojos> getuserDetails(){
+
+
+        eventref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User_pojos callories_pojos=dataSnapshot.getValue(User_pojos.class);
@@ -71,4 +57,6 @@ public class User_profile_repository {
         });
         return  eventdetailsLD;
     }
+
+
 }

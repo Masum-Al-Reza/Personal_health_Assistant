@@ -1,8 +1,9 @@
-package com.example.finalyear.ui.User_profile;
+package com.example.finalyear.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.finalyear.firebase_repository.User_profile_repository;
 import com.example.finalyear.pojos.User_pojos;
 
 import java.util.List;
@@ -21,8 +22,8 @@ public class User_profile_viewmodel extends ViewModel {
 
         user_profile_repository.addevent_to_db(event);
     }
-    public  void  geteventdetails(String eventid){
-        eventdetailsLD=user_profile_repository.getevetdetailsByEventid(eventid);
+    public  void  geteventdetails(){
+        eventdetailsLD=user_profile_repository.getuserDetails();
 
     }
 

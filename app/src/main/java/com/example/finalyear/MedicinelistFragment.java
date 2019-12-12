@@ -1,4 +1,4 @@
-package com.example.finalyear.ui.medicine2_gallery;
+package com.example.finalyear;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -17,11 +19,12 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.finalyear.R;
 import com.example.finalyear.adapter.Medicine_Adapter;
 import com.example.finalyear.pojos.Medicine_User_pojos;
+import com.example.finalyear.viewmodel.Mediicine_profile_viewmodel;
 
 import java.util.List;
+import java.util.Objects;
 
 public class MedicinelistFragment extends Fragment {
     private Medicine_Adapter medicine_adapter;
@@ -31,6 +34,8 @@ public class MedicinelistFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+
         galleryViewModel =
                 ViewModelProviders.of(this).get(Mediicine_profile_viewmodel.class);
         View root = inflater.inflate(R.layout.fragment_gallery, container, false);

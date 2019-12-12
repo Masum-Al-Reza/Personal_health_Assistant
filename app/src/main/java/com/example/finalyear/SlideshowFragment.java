@@ -1,4 +1,4 @@
-package com.example.finalyear.ui.Medicine_gallery;
+package com.example.finalyear;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,8 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-
-import com.example.finalyear.R;
 
 public class SlideshowFragment extends Fragment {
 
