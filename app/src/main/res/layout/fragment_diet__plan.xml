@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
     android:orientation="vertical"
-    tools:context=".Diet_Plan_fragment">
+    tools:context=".Add_diet_Plan_fragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,27 +13,43 @@
         android:layout_marginTop="200dp"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/inputeventname"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter a plan name"
-            android:textColorHint="@color/common_google_signin_btn_text_dark_default" />
+            android:text="Enter type of diet"/>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:id="@+id/TYpeGRP"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/FatRB"
+                android:checked="true"
+                android:text="Fat"/>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/mediumRB"
+                android:text="medium"/>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ThinRB"
+                android:text="Thin"/>
 
-        <EditText
-            android:id="@+id/inputdestination"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter a type of diet plan"
-            android:textColorHint="@color/common_google_signin_btn_text_dark_default" />
 
-        <EditText
-            android:id="@+id/inputbudget"
+
+        </RadioGroup>
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="target consume callories"
-            android:inputType="number"
-            android:textColorHint="@color/common_google_signin_btn_text_dark_default" />
+            android:text="Enter Target Calorie"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/callrySpin"/>
+
 
         <Button
             android:id="@+id/add_dateBTN"

@@ -11,9 +11,6 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_nav_home_to_user_profile"
-            app:destination="@id/user_profile" />
-        <action
             android:id="@+id/action_nav_home_to_diet_panel"
             app:destination="@id/diet_panel" />
         <action
@@ -27,6 +24,9 @@
             app:destination="@id/nav_tools"
             app:popUpTo="@+id/nav_home"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_nav_home_to_profile_user"
+            app:destination="@id/profile_user" />
     </fragment>
 
     <fragment
@@ -80,7 +80,7 @@
     </fragment>
     <fragment
         android:id="@+id/diet_panel"
-        android:name="com.example.finalyear.Diet_panel_fragment"
+        android:name="com.example.finalyear.Diet_panel_list_fragment"
         android:label="fragment_diet_panel"
         tools:layout="@layout/fragment_diet_panel" >
         <action
@@ -97,7 +97,7 @@
         tools:layout="@layout/fragment_diet__suggesiton" />
     <fragment
         android:id="@+id/diet_Plan"
-        android:name="com.example.finalyear.Diet_Plan_fragment"
+        android:name="com.example.finalyear.Add_diet_Plan_fragment"
         android:label="fragment_diet__plan"
         tools:layout="@layout/fragment_diet__plan" >
         <action
@@ -126,7 +126,11 @@
         android:id="@+id/profile_user"
         android:name="com.example.finalyear.Profile_user"
         android:label="fragment_profile_user"
-        tools:layout="@layout/fragment_profile_user" />
+        tools:layout="@layout/fragment_profile_user" >
+        <action
+            android:id="@+id/action_profile_user_to_user_profile"
+            app:destination="@id/user_profile" />
+    </fragment>
     <fragment
         android:id="@+id/water_Reminder"
         android:name="com.example.finalyear.Water_Reminder"

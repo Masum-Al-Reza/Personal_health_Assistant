@@ -10,24 +10,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="vertical">
         <TextView
             android:id="@+id/usernameTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
-            android:textSize="20dp"/>
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
         <TextView
             android:id="@+id/User_gender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:gravity="center"
             android:textSize="20dp"/>
         <TextView
             android:id="@+id/user_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:gravity="center"
             android:textSize="20dp"/>
 
         <TextView
@@ -35,17 +40,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:gravity="center"
             android:textSize="20dp"/>
         <TextView
             android:id="@+id/userheihtTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:gravity="center"
             android:textSize="20dp"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/updaeBTNuser"
+            android:gravity="center"
             android:text="update"/>
 
 

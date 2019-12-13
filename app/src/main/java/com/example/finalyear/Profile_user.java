@@ -8,9 +8,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -44,12 +48,32 @@ public class Profile_user extends Fragment {
         user_profile_viewmodel= ViewModelProviders.of(this).get(User_profile_viewmodel.class);
 
         user_profile_viewmodel.getuserdetails();
+        setHasOptionsMenu(true);
 
         return inflater.inflate(R.layout.fragment_profile_user, container, false);
     }
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.add_menu,menu);
+
+    }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.additem:
+                Navigation.findNavController(getActivity(),R.id.nav_host_fragment).navigate(R.id.action_profile_user_to_user_profile);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+    @Override
+    public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
 
@@ -60,21 +84,25 @@ public class Profile_user extends Fragment {
         genderTV=view.findViewById(R.id.User_gender);
         heightTV=view.findViewById(R.id.userheihtTV);
 
-        UPdateBTN=view.findViewById(R.id.updateBTN);
+        UPdateBTN=view.findViewById(R.id.updaeBTNuser);
         user_profile_viewmodel.userdetailsLD.observe(this, new Observer<User_pojos>() {
             @Override
             public void onChanged(User_pojos user_pojos) {
                 Log.i(TAG, "onChanged: "+user_pojos.getProfilename());
-                NameTV.setText(user_pojos.getProfilename());
-                phnnumberTV.setText(user_pojos.getGender());
-                genderTV.setText(user_pojos.getNumber());
-                heightTV.setText(String.valueOf(user_pojos.getHeight())+"inch");
-                weightTV.setText(String.valueOf(user_pojos.getWeight())+"kg");
+                NameTV.setText("Name:"+user_pojos.getProfilename());
+                phnnumberTV.setText("Sex:"+user_pojos.getGender());
+                genderTV.setText("phone Number:"+user_pojos.getNumber());
+                heightTV.setText("Height:"+String.valueOf(user_pojos.getHeight())+"fit");
+                weightTV.setText("Weight:"+String.valueOf(user_pojos.getWeight())+"kg");
 
             }
         });
+       UPdateBTN.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
 
-
-
+               Navigation.findNavController(v).navigate(R.id.action_profile_user_to_user_profile);
+           }
+       });
     }
-}
+    }

@@ -1,5 +1,6 @@
 package com.example.finalyear;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +25,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
+
         ((AppCompatActivity)getActivity()).getSupportActionBar().show();
         getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -56,7 +57,7 @@ public class HomeFragment extends Fragment {
         profileCV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_user_profile);
+                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_profile_user);
             }
         });
         Doctorsgallery_cv.setOnClickListener(new View.OnClickListener() {
@@ -70,8 +71,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.action_nav_home_to_water_Reminder);
-
-
             }
         });
     }

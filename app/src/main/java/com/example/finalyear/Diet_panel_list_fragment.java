@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Diet_panel_fragment extends Fragment {
+public class Diet_panel_list_fragment extends Fragment {
     private Eventviewmodel eventviewmodel;
     private EventAdapter eventAdapter;
     private RecyclerView recyclerView;
@@ -42,7 +42,7 @@ public class Diet_panel_fragment extends Fragment {
 
 
 
-    public Diet_panel_fragment() {
+    public Diet_panel_list_fragment() {
         // Required empty public constructor
     }
 

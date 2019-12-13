@@ -9,11 +9,11 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="HOME" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/Dietpanel"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Diet panel" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/medicinepanel"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Medicine Panel" />
         <item
@@ -24,10 +24,7 @@
 
     <item android:title="Communicate">
         <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
+
             <item
                 android:id="@+id/Exit_item"
                 android:icon="@drawable/ic_exit_to_app_black_24dp"

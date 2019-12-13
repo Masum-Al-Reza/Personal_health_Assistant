@@ -3,19 +3,19 @@ package com.example.finalyear.viewmodel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.finalyear.firebase_repository.Medicine_profile_repository;
+import com.example.finalyear.firebase_repository.Medicine_repos;
 import com.example.finalyear.pojos.Medicine_User_pojos;
 
 import java.util.List;
 
 public class Mediicine_profile_viewmodel extends ViewModel {
-    private Medicine_profile_repository user_profile_repository;
+    private Medicine_repos user_profile_repository;
     public MutableLiveData<List<Medicine_User_pojos>> eventlistDB=new MutableLiveData<>();
     public MutableLiveData<Medicine_User_pojos>medicinedetailsLD=new MutableLiveData<>();
 
 
     public Mediicine_profile_viewmodel(){
-        user_profile_repository=new Medicine_profile_repository();
+        user_profile_repository=new Medicine_repos();
         eventlistDB=user_profile_repository.eventlistDB;
 
     }

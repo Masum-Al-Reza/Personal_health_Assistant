@@ -104,17 +104,22 @@ public class Medicine_User_profile_fragment extends Fragment {
                 String type= Medicine_type.getText().toString();
 
                 if (MorningCB.isChecked()){
-                    String morning=MorningCB.getText().toString();
-                    mresult.add(morning);
-
+                   // String morning=MorningCB.getText().toString();
+                    mresult.add("morning");
+                }else {
+                    mresult.remove(0);
                 }
                 if (noonCB.isChecked()){
-                    String Noon=noonCB.getText().toString();
-                    mresult.add(Noon);
+                   // String Noon=noonCB.getText().toString();
+                    mresult.add("noon");
+                }else {
+                    mresult.remove(1);
                 }
                 if (nightCB.isChecked()){
-                    String Night=nightCB.getText().toString();
-                    mresult.add(Night);
+                   // String Night=nightCB.getText().toString();
+                    mresult.add("night");
+                }else {
+                    mresult.remove(2);
                 }
 
                 if (name.isEmpty() && type.isEmpty()){
@@ -168,16 +173,16 @@ public class Medicine_User_profile_fragment extends Fragment {
                 String type= Medicine_type.getText().toString();
 
                 if (MorningCB.isChecked()){
-                    String morning=MorningCB.getText().toString();
-                    mresult.add(morning);
+                   // String morning=MorningCB.getText().toString();
+                    mresult.add("morning");
                 }
                 if (noonCB.isChecked()){
-                    String Noon=noonCB.getText().toString();
-                    mresult.add(Noon);
+                 //   String Noon=noonCB.getText().toString();
+                    mresult.add("noon");
                 }
                 if (nightCB.isChecked()){
-                    String Night=nightCB.getText().toString();
-                    mresult.add(Night);
+
+                    mresult.add("night");
                 }
 
                 if (name.isEmpty() && type.isEmpty()){

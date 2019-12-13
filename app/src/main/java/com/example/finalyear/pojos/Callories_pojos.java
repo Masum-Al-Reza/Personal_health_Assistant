@@ -3,7 +3,6 @@ package com.example.finalyear.pojos;
 public class Callories_pojos {
     private String eventID;
     private String Dietname;
-    private String Diet_type;
     private int budget;
     private String Callories_date;
     private String last_Callories_date;
@@ -12,10 +11,10 @@ public class Callories_pojos {
         //required by Firebase
     }
 
-    public Callories_pojos(String eventID, String Dietname, String Diet_type, int budget, String Callories_date,String last_Callories_date) {
+    public Callories_pojos(String eventID, String Dietname,int budget, String Callories_date,String last_Callories_date) {
         this.eventID = eventID;
         this.Dietname = Dietname;
-        this.Diet_type = Diet_type;
+
         this.budget = budget;
         this.last_Callories_date=last_Callories_date;
         this.Callories_date = Callories_date;
@@ -45,13 +44,7 @@ public class Callories_pojos {
         this.Dietname = dietname;
     }
 
-    public String getDiet_type() {
-        return Diet_type;
-    }
 
-    public void setDiet_type(String diet_type) {
-        this.Diet_type = diet_type;
-    }
 
 
 

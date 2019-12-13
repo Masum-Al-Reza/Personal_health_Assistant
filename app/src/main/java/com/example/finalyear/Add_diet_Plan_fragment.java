@@ -16,14 +16,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.finalyear.helper.Help;
 import com.example.finalyear.viewmodel.Eventviewmodel;
-import com.example.finalyear.R;
 
 import com.example.finalyear.pojos.Callories_pojos;
 
@@ -34,16 +38,20 @@ import java.util.Calendar;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Diet_Plan_fragment extends Fragment {
-    private EditText EventnameEt,destinationET,budgetET;
-    private Button addeventBTn,DateBTn,updateBTn;
+public class Add_diet_Plan_fragment extends Fragment {
+    private EditText EventnameEt,destinationET, target_Calorie_ET;
+    private Button add_diet_BTn,DateBTn,updateBTn;
+    private RadioGroup typeRG;
     private Eventviewmodel eventviewmodel;
     private String Callorydate;
+    private  String dietType;
+    private String calorie;
+    private Spinner calorieSpinner;
     private  String EventID;
-    private Help help;
 
 
-    public Diet_Plan_fragment() {
+
+    public Add_diet_Plan_fragment() {
         // Required empty public constructor
     }
 
@@ -69,16 +77,11 @@ public class Diet_Plan_fragment extends Fragment {
             eventviewmodel.eventdetailsLD.observe(this, new Observer<Callories_pojos>() {
                 @Override
                 public void onChanged(Callories_pojos callories_pojos) {
-                    EventnameEt.setText(callories_pojos.getDietname());
-                    destinationET.setText(callories_pojos.getDiet_type());
-                    budgetET.setText(String.valueOf(callories_pojos.getBudget()));
+
+
                   Callorydate=callories_pojos.getCallories_date();
-                   addeventBTn.setVisibility(View.GONE);
+                   add_diet_BTn.setVisibility(View.GONE);
                    updateBTn.setVisibility(View.VISIBLE);
-
-
-
-
 
 
                 }
@@ -91,52 +94,66 @@ public class Diet_Plan_fragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        EventnameEt=view.findViewById(R.id.inputeventname);
-        destinationET=view.findViewById(R.id.inputdestination);
 
-        budgetET=view.findViewById(R.id.inputbudget);
-        addeventBTn=view.findViewById(R.id.eventaddBTn);
+        add_diet_BTn =view.findViewById(R.id.eventaddBTn);
         updateBTn=view.findViewById(R.id.Update_event);
         DateBTn=view.findViewById(R.id.add_dateBTN);
+        typeRG=view.findViewById(R.id.TYpeGRP);
+        calorieSpinner = view.findViewById(R.id.callrySpin);
+        String[] cities = getResources().getStringArray(R.array.calorie);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                getActivity(),android.R.layout.simple_spinner_dropdown_item, cities
+        );
+        calorieSpinner.setAdapter(adapter);
+        calorieSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                calorie = adapterView.getItemAtPosition(i).toString();
+               // Toast.makeText(MainActivity.this, city, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        typeRG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton rb = view.findViewById(checkedId);
+                dietType = rb.getText().toString();
+            }
+        });
+
         updateBTn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Diet_name= EventnameEt.getText().toString();
-                String Diet_type=destinationET.getText().toString();
-                String Target_callory=budgetET.getText().toString();
-                if (Diet_name.isEmpty() && Diet_type.isEmpty()  && Target_callory.isEmpty()){
-                    Toast.makeText(getActivity(), "provide all info", Toast.LENGTH_SHORT).show();
 
-                }else {
-                    Callories_pojos event=new Callories_pojos(EventID,Diet_name,Diet_type,Integer.parseInt(Target_callory), Callorydate,Help.getvurrentdate());
+                    Callories_pojos event=new Callories_pojos(EventID,dietType,Integer.parseInt(calorie), Callorydate,Help.getvurrentdate());
                     eventviewmodel.update(event);
                     Navigation.findNavController(v)
                             .navigate(R.id.action_diet_Plan_to_diet_panel);
 
 
-                }
+
 
             }
         });
-        addeventBTn.setOnClickListener(new View.OnClickListener() {
+        add_diet_BTn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String Diet_name= EventnameEt.getText().toString();
-                String Diet_type=destinationET.getText().toString();
-                String Target_callory=budgetET.getText().toString();
-                if (Diet_name.isEmpty() && Diet_type.isEmpty()  && Target_callory.isEmpty()){
-                    Toast.makeText(getActivity(), "provide all info", Toast.LENGTH_SHORT).show();
 
-                }else {
-                   Callories_pojos event=new Callories_pojos(null,Diet_name,Diet_type,Integer.parseInt(Target_callory), Callorydate,Help.getvurrentdate());
+
+
+                   Callories_pojos event=new Callories_pojos(null,dietType,Integer.parseInt(calorie), Callorydate,Help.getvurrentdate());
                    eventviewmodel.save(event);
                     Navigation.findNavController(view)
                             .navigate(R.id.action_diet_Plan_to_diet_panel);
 
 
-                }
+
 
 
             }

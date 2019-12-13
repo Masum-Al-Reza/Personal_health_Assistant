@@ -45,7 +45,8 @@ public class Medicine_Adapter extends RecyclerView.Adapter<Medicine_Adapter.Even
         holder.medicinenameTV.setText(eventList.get(position).getMedicine_profilename());
         holder.medicine_typeTV.setText(eventList.get(position).getMedicine_type());
         holder.medicinilimitTV.setText(eventList.get(position).getMedicine_date_limit());
-        holder.medicinedatemorningTV.setText("1+0+1");
+        holder.medicinedatemorningTV.setText(eventList.get(position).getMedicine_time().get(0)
+                +"+"+eventList.get(position).getMedicine_time().get(1) +"+"+eventList.get(position).getMedicine_time().get(2));
 
 
 

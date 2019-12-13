@@ -45,7 +45,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
     public void onBindViewHolder(@NonNull final EventViewHolder holder, final int position) {
         holder.nameTV.setText(eventList.get(position).getDietname());
         holder.CAllory_Date.setText(""+eventList.get(position).getCallories_date());
-        holder.Callory_typeTV.setText(""+eventList.get(position).getDiet_type());
+
         holder.CalloryBudgetTV.setText(String.valueOf(eventList.get(position).getBudget()));
         String goingDate =(eventList.get(position).getCallories_date());
 

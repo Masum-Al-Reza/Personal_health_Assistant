@@ -1,5 +1,6 @@
 package com.example.finalyear;
 
+import android.app.AlarmManager;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
@@ -61,6 +62,13 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()){
                     case R.id.nav_home:
 
+                        break;
+
+                    case R.id.Dietpanel:
+                        Navigation.findNavController(MainActivity.this,R.id.nav_host_fragment).navigate(R.id.action_nav_home_to_diet_panel);
+                        break;
+                    case R.id.medicinepanel:
+                        Navigation.findNavController(MainActivity.this,R.id.nav_host_fragment).navigate(R.id.action_nav_home_to_nav_gallery);
                         break;
                     case  R.id.logout_tools:
                        loginViewModel.Logout();
